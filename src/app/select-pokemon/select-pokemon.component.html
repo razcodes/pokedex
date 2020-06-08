@@ -1,0 +1,31 @@
+<form [formGroup]="myForm">
+  <mat-form-field>
+    <mat-label>Select a Pokemon:</mat-label>
+    <mat-select formControlName="currentPokemon">
+      <mat-option 
+        *ngFor="let p of pokemons" 
+        [value]="p.name" 
+        (click)="setCurrentPokemon(p.url)">
+        {{ p.name | titlecase }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+</form>
+
+<!-- <div *ngIf="currentPokemon">
+  <h2>{{ currentPokemon.name | titlecase }}</h2>
+  <img 
+    *ngIf="currentPokemon.sprites.front_default" 
+    [src]="currentPokemon.sprites.front_default" 
+    [alt]="currentPokemon.name">
+  <img 
+    *ngIf="currentPokemon.sprites.back_default" 
+    [src]="currentPokemon.sprites.back_default" 
+    [alt]="currentPokemon.name">
+
+  <h2>Types: </h2>
+  <div *ngFor="let type of currentPokemon.types">
+    <a [href]="type.type.url">{{ type.type.name }}</a>
+  </div>
+</div> -->
+

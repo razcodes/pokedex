@@ -1,10 +1,15 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { PokedexService } from './pokedex.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
-  title = 'Pokedex';
+export class AppComponent{
+  currentPokemon;
+
+  constructor(private service: PokedexService){
+    this.currentPokemon = this.service.getCurrentPokemon();
+  }
 }

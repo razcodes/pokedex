@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { PokedexService } from '../pokedex.service';
 import { FormBuilder, FormGroup } from '@angular/forms';
 
@@ -8,9 +8,10 @@ import { FormBuilder, FormGroup } from '@angular/forms';
   styleUrls: ['./select-pokemon.component.css']
 })
 export class SelectPokemonComponent implements OnInit {
+  @Output() change = new EventEmitter();
   myForm: FormGroup;
-  currentPokemon;
   pokemons;
+  currentPokemon;
   
   constructor(private fb: FormBuilder, private service: PokedexService){}
 
@@ -23,19 +24,24 @@ export class SelectPokemonComponent implements OnInit {
 
   getAllPokemons(){
     this.service.getAll()
-      .then(
-        res => {
-          this.pokemons = res["results"]
-        })
+    .then(
+      res => {
+        this.pokemons = res["results"];
+        this.change.emit(this.currentPokemon);
+      })
   }
   
   setCurrentPokemon(pokemonUrl){
     this.service.setCurrentPokemonByUrl(pokemonUrl)
-      .then(res => this.currentPokemon = res)
+    .then(res => {
+      this.currentPokemon = res;
+      this.change.emit(this.currentPokemon);
+    })
   }
 
   getCurrentPokemon(){
     this.service.getCurrentPokemon();
+    this.change.emit(this.currentPokemon);
   }
 
 }

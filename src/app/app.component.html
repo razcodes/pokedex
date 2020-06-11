@@ -2,7 +2,7 @@
 
 <search-pokemon></search-pokemon>
 
-<select-pokemon></select-pokemon>
+<select-pokemon (change)="onPokemonSelected($event)"></select-pokemon>
 
 <div *ngIf="currentPokemon">
     <h2>{{ currentPokemon.name | titlecase }}</h2>
@@ -17,9 +17,9 @@
   
     <h2>Types: </h2>
     <div *ngFor="let type of currentPokemon.types">
-      <a [href]="type.type.url">{{ type.type.name }}</a>
+      <a [href]="type.type.url" mat-stroked-button>{{ type.type.name | titlecase }}</a>
     </div>
-    
+
   </div>
   
 

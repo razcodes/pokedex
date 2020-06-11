@@ -7,9 +7,12 @@ import { PokedexService } from './pokedex.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent{
-  currentPokemon;
+  currentPokemon; 
 
-  constructor(private service: PokedexService){
-    this.currentPokemon = this.service.getCurrentPokemon();
+  constructor(private service: PokedexService){}
+
+  onPokemonSelected(pokemon){
+    this.currentPokemon = pokemon;
   }
+
 }

@@ -8,7 +8,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "deploy:gh": "ng build --prod --base-href='https://razcodes.github.io/pokedex/' && ngh"
+    "deploy:gh": "ng build --prod --base-href 'pokedex' && ngh"
   },
   "private": true,
   "dependencies": {

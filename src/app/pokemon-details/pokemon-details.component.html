@@ -19,7 +19,7 @@
         
         <h2>Types: </h2>
         <div *ngFor="let type of currentPokemon.types">
-          <a [href]="type.type.url" mat-stroked-button>{{ type.type.name | titlecase }}</a>
+          <a [style.background-color]="colorPicker(type.type.name)" mat-stroked-button class="dropshadow">{{ type.type.name | titlecase }}</a>
         </div>
     </div>
 </div>

@@ -32,10 +32,10 @@ export class SelectPokemonComponent implements OnInit {
   
   setCurrentPokemon(pokemonUrl){
     this.service.setCurrentPokemonByUrl(pokemonUrl)
-    .then(res => {
-      this.currentPokemon = res;
-      this.change.emit(this.currentPokemon);
-    })
+      .then(res => {
+        this.currentPokemon = res;
+        this.change.emit(this.currentPokemon);
+      })
   }
 
   getCurrentPokemon(){

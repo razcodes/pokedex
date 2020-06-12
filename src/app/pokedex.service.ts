@@ -46,7 +46,7 @@ export class PokedexService{
       this.getPokemonByUrl(url)
       .subscribe(res => {
         this.currentPokemon = res;
-        resolve(res)
+        resolve(res);
         })
       })
     }

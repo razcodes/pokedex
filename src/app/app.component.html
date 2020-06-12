@@ -2,32 +2,8 @@
 
 <search-pokemon (change)="onPokemonChange($event)"></search-pokemon>
 
-<select-pokemon (change)="onPokemonChange($event)"></select-pokemon>
+<pokemon-details [currentPokemon]="currentPokemon"></pokemon-details>
 
-<div *ngIf="currentPokemon">
+<!-- <select-pokemon (change)="onPokemonChange($event)"></select-pokemon> -->
 
-  <div *ngIf="!currentPokemon.sprites" class="loading">
-    <mat-spinner [diameter]="40" layout-align="center center"></mat-spinner>
-  </div>
-  
-  <div *ngIf="currentPokemon.sprites">
-    <h2>{{ currentPokemon.name | titlecase }}</h2>
-      <img 
-      *ngIf="currentPokemon.sprites.front_default" 
-      [src]="currentPokemon.sprites.front_default" 
-      [alt]="currentPokemon.name">
-      
-      <img 
-      *ngIf="currentPokemon.sprites.back_default" 
-      [src]="currentPokemon.sprites.back_default" 
-      [alt]="currentPokemon.name">
-      
-      <h2>Types: </h2>
-      <div *ngFor="let type of currentPokemon.types">
-        <a [href]="type.type.url" mat-stroked-button>{{ type.type.name | titlecase }}</a>
-      </div>
-  </div>
-    
-  </div>
-  
 

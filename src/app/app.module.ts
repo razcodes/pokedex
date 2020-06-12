@@ -5,25 +5,20 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { PokedexService } from './pokedex.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { Routes, RouterModule } from '@angular/router';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SelectPokemonComponent } from './select-pokemon/select-pokemon.component';
 import { SearchPokemonComponent } from './search-pokemon/search-pokemon.component';
-
-import { MatInputModule } from '@angular/material/input';
-import { MatButtonModule } from '@angular/material/button';
-import { MatSelectModule } from '@angular/material/select';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatSliderModule } from '@angular/material/slider';
-import { MatAutocompleteModule } from '@angular/material/autocomplete';
-import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
-
+import { MatComponentsModule } from './mat-components.module';
+import { PokemonDetailsComponent } from './pokemon-details/pokemon-details.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SelectPokemonComponent,
-    SearchPokemonComponent
+    SearchPokemonComponent,
+    PokemonDetailsComponent
   ],
   imports: [
     BrowserModule,
@@ -31,14 +26,8 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    MatSelectModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatSliderModule,
-    MatAutocompleteModule,
-    MatSelectModule,
-    MatButtonModule,
-    MatProgressSpinnerModule
+    MatComponentsModule,
+    RouterModule
   ],
   providers: [
     PokedexService

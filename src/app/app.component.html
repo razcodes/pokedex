@@ -1,8 +1,8 @@
 <h1>Pokedex</h1>
 
-<search-pokemon></search-pokemon>
+<search-pokemon (change)="onPokemonChange($event)"></search-pokemon>
 
-<select-pokemon (change)="onPokemonSelected($event)"></select-pokemon>
+<select-pokemon (change)="onPokemonChange($event)"></select-pokemon>
 
 <div *ngIf="currentPokemon">
     <h2>{{ currentPokemon.name | titlecase }}</h2>
@@ -10,6 +10,7 @@
       *ngIf="currentPokemon.sprites.front_default" 
       [src]="currentPokemon.sprites.front_default" 
       [alt]="currentPokemon.name">
+      
     <img 
       *ngIf="currentPokemon.sprites.back_default" 
       [src]="currentPokemon.sprites.back_default" 

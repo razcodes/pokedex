@@ -11,8 +11,9 @@ export class AppComponent{
 
   constructor(private service: PokedexService){}
 
-  onPokemonSelected(pokemon){
+  onPokemonChange(pokemon){
     this.currentPokemon = pokemon;
   }
+
 
 }

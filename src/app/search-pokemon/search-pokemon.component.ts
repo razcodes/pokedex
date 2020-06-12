@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { PokedexService } from '../pokedex.service';
 import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
 import { Observable } from 'rxjs';
@@ -10,6 +10,7 @@ import {map, startWith} from 'rxjs/operators';
   styleUrls: ['./search-pokemon.component.css']
 })
 export class SearchPokemonComponent implements OnInit {
+  @Output() change = new EventEmitter();
   myForm: FormGroup;
   myControl = new FormControl();
   options: string[] = [];
@@ -43,11 +44,15 @@ export class SearchPokemonComponent implements OnInit {
   
   getCurrentPokemon(){
     this.service.getCurrentPokemon();
+    this.change.emit(this.currentPokemon);
   }
 
   setCurrentPokemonByName(pokemon){
     this.service.setCurrentPokemonByName(pokemon)
-      .then(res => this.currentPokemon = res)
+      .then(res => {
+        this.currentPokemon = res;
+        this.change.emit(this.currentPokemon);
+      })
   }
   
   private _filter(value: string): string[] {

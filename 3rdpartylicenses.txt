@@ -95,9 +95,10 @@ THE SOFTWARE.
 
 @angular/material/progress-spinner
 
-@angular/material/select
-
 @angular/platform-browser
+MIT
+
+@angular/router
 MIT
 
 core-js

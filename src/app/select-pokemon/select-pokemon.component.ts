@@ -10,8 +10,8 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 export class SelectPokemonComponent implements OnInit {
   @Output() change = new EventEmitter();
   myForm: FormGroup;
-  pokemons;
   currentPokemon;
+  pokemons;
   
   constructor(private fb: FormBuilder, private service: PokedexService){}
 

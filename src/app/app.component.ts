@@ -7,13 +7,27 @@ import { PokedexService } from './pokedex.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent{
-  currentPokemon; 
+  currentPokemon;
 
-  constructor(private service: PokedexService){}
+  constructor(private service: PokedexService){
+  }
 
   onPokemonChange(pokemon){
     this.currentPokemon = pokemon;
   }
 
+
+  isValid(x){
+    if(x == null){
+      console.log("null")
+      return false
+    }
+    if(x == undefined){
+      console.log("undefined")
+      return false;
+    }
+
+    return true;
+  }
 
 }

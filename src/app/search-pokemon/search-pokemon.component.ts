@@ -44,10 +44,9 @@ export class SearchPokemonComponent implements OnInit {
   
   getCurrentPokemon(){
     this.service.getCurrentPokemon();
-    this.change.emit(this.currentPokemon);
   }
 
-  setCurrentPokemonByName(pokemon){
+  setCurrentPokemon(pokemon){
     this.service.setCurrentPokemonByName(pokemon)
       .then(res => {
         this.currentPokemon = res;

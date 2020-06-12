@@ -39,38 +39,37 @@ export class PokedexService{
     })
   }
     
-  setCurrentPokemonById(id){
-    this.currentPokemon = null;
-    return new Promise((resolve, reject) => {
-      this.getPokemonById(id)
-        .subscribe(res => {
-          this.currentPokemon = res;
-          resolve(res)
-        })
-    })
-  }
-
   setCurrentPokemonByName(pokemon){
     let url = this.URL_PATH+'pokemon/'+pokemon.toLowerCase();
     this.currentPokemon = null;
     return new Promise((resolve, reject) => {
       this.getPokemonByUrl(url)
-        .subscribe(res => {
-          this.currentPokemon = res;
-          resolve(res)
+      .subscribe(res => {
+        this.currentPokemon = res;
+        resolve(res)
         })
-    })
-  }
-
-  setCurrentPokemonByUrl(pokemonUrl){
-    console.log(pokemonUrl);
-    this.currentPokemon = null;
-    return new Promise((resolve, reject) => {
-      this.getPokemonByUrl(pokemonUrl)
+      })
+    }
+    
+    setCurrentPokemonByUrl(pokemonUrl){
+      this.currentPokemon = null;
+      return new Promise((resolve, reject) => {
+        this.getPokemonByUrl(pokemonUrl)
         .subscribe(res => {
           this.currentPokemon = res;
           resolve(res);
         })
-    })
+      })
+    }
   }
-}
+  
+  /*   setCurrentPokemonById(id){
+      this.currentPokemon = null;
+      return new Promise((resolve, reject) => {
+        this.getPokemonById(id)
+          .subscribe(res => {
+            this.currentPokemon = res;
+            resolve(res)
+          })
+      })
+    } */

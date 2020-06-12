@@ -8,7 +8,7 @@
              [matAutocomplete]="auto">
 
       <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
-        <mat-option *ngFor="let option of filteredOptions | async" [value]="option" (click)="setCurrentPokemonByName(option)">
+        <mat-option *ngFor="let option of filteredOptions | async" [value]="option" (click)="setCurrentPokemon(option)">
           {{option}}
         </mat-option>
       </mat-autocomplete>

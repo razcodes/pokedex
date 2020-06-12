@@ -27,7 +27,6 @@ export class SelectPokemonComponent implements OnInit {
     .then(
       res => {
         this.pokemons = res["results"];
-        this.change.emit(this.currentPokemon);
       })
   }
   
@@ -41,7 +40,6 @@ export class SelectPokemonComponent implements OnInit {
 
   getCurrentPokemon(){
     this.service.getCurrentPokemon();
-    this.change.emit(this.currentPokemon);
   }
 
 }
